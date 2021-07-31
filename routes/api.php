@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::resource('product', App\Http\Controllers\ProductController::class);
+
 Route::group([
 
     'middleware' => 'api',
