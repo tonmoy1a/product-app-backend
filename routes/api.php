@@ -18,20 +18,18 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::resource('product', App\Http\Controllers\ProductController::class);
-
 Route::group([
 
     'middleware' => 'api',
     'namespace' => 'App\Http\Controllers',
-    'prefix' => 'auth'
 
 ], function ($router) {
 
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+    Route::post('auth/login', 'AuthController@login');
+    Route::post('auth/logout', 'AuthController@logout');
+    Route::post('auth/refresh', 'AuthController@refresh');
+
+    Route::resource('product', ProductController::class);
 
 });
 
